@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
   const { baseUrl } = useRuntimeConfig().public.ecomsilver;
   const name = to.meta.id;
   const { data } = await useFetch(`${baseUrl}/pages/${name}`);
-  const results = data.value ?? null;
+  const results = JSON.parse(data.value) ?? null;
   if (!results) return navigateTo("/", { redirectCode: 404 });
   // nuxtApp.provide('routeData', results)
   nuxtApp.routeData = results;

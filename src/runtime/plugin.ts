@@ -7,7 +7,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
   const { data } = await useFetch(`${baseUrl}/pages`);
 
-  const pages = data?.value || [];
+  const pages = JSON.parse(data?.value) || [];
   pages.forEach((page) => {
     if (page) {
       router.addRoute({

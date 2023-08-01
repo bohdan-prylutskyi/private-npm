@@ -4,7 +4,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   const router = useRouter();
   const { baseUrl } = useRuntimeConfig().public.ecomsilver;
   const { data } = await useFetch(`${baseUrl}/pages`);
-  const pages = JSON.parse(data?.value) || [];
+  const pages = data?.value || [];
   pages.forEach((page) => {
     if (page) {
       router.addRoute({

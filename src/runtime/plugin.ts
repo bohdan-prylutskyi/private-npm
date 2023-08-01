@@ -16,6 +16,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         meta: {
           id: page.id,
           middleware: "pageContent",
+          parent: page.parent.id,
         },
         component: () => import("./page.vue"),
       });
